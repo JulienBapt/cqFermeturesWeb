@@ -1,0 +1,182 @@
+// ============================================================
+// CQ Fermetures — Design Tokens & Global Styles
+// ============================================================
+
+// --- Google Fonts ---
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+// --- CSS Custom Properties ---
+:root {
+  --color-green:        #1d6d30;
+  --color-green-dark:   #155224;
+  --color-green-light:  #e8f4eb;
+  --color-black:        #0a0a0a;
+  --color-white:        #ffffff;
+  --color-grey-soft:    #f5f5f3;
+  --color-grey-mid:     #e0e0dc;
+  --color-text:         #1a1a1a;
+  --color-text-muted:   #555550;
+
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body:    'Inter', system-ui, sans-serif;
+
+  --radius-sm:  4px;
+  --radius-md:  8px;
+  --radius-lg:  16px;
+
+  --shadow-card: 0 2px 16px rgba(0,0,0,.08), 0 1px 4px rgba(0,0,0,.04);
+  --shadow-hover: 0 8px 32px rgba(29,109,48,.15);
+
+  --section-padding: clamp(4rem, 8vw, 7rem) clamp(1rem, 5vw, 3rem);
+  --container-max:   1200px;
+
+  --transition: 220ms ease;
+}
+
+// --- Reset & Base ---
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-body), serif;
+  color: var(--color-text);
+  background: var(--color-white);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+// --- Focus Visible (WCAG AA) ---
+:focus-visible {
+  outline: 3px solid var(--color-green);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+// --- Utility Classes ---
+.container {
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 5vw, 3rem);
+}
+
+.section-label {
+  display: inline-block;
+  font-family: var(--font-body), serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-green);
+  margin-bottom: 0.75rem;
+}
+
+.section-title {
+  font-family: var(--font-display), serif;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 700;
+  color: var(--color-black);
+  line-height: 1.2;
+  padding-left: 1rem;
+  border-left: 4px solid var(--color-green);
+  margin-bottom: 1.25rem;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--color-green);
+  color: var(--color-white);
+  padding: 0.85rem 2rem;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  transition: background var(--transition), box-shadow var(--transition), transform var(--transition);
+
+  &:hover, &:focus-visible {
+    background: var(--color-green-dark);
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 2px solid var(--color-green);
+  color: var(--color-green);
+  padding: 0.75rem 1.75rem;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: background var(--transition), color var(--transition);
+
+  &:hover, &:focus-visible {
+    background: var(--color-green);
+    color: var(--color-white);
+  }
+}
+
+/* ─── Scroll to top ─────────────────────────────────────────────────────────────── */
+
+.scroll-to-top-btn {
+  outline: 1px solid var(--cream);
+  border: black;
+  position: fixed;
+  right: 15px;
+  bottom: 50px;
+  border-radius: 25px;
+  user-select: none;
+}
+
+.scroll-to-top-img {
+  background-color: rgb(29, 109, 48);
+  border-radius: 25px;
+}
+
+// --- Reduced Motion ---
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
