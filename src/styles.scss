@@ -3,7 +3,8 @@
 // ============================================================
 
 // --- Google Fonts ---
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600&display=swap');
+// Loaded via <link rel="preconnect"> + <link rel="stylesheet"> in index.html
+// (non-render-blocking, better LCP). Do not re-add @import here.
 
 // --- CSS Custom Properties ---
 :root {

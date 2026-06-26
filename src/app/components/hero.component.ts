@@ -1,4 +1,5 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import {Component, ChangeDetectionStrategy, signal, OnInit, DOCUMENT, inject} from '@angular/core';
+import {NgOptimizedImage} from '@angular/common';
 
 @Component({
   selector: 'app-hero',
@@ -8,18 +9,14 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
 
       <!-- Background Image -->
       <div class="hero__bg" aria-hidden="true">
-        <picture>
-          <source
-            media="(max-width: 649px)"
-            srcset="assets/images/front-page-mobile.jpg"
-          />
-          <img
-            src="assets/images/front-page.jpg"
-            alt=""
-            fetchpriority="high"
-            class="hero__img"
-          />
-        </picture>
+        <img
+          [ngSrc]="coverPicture()"
+          alt="Couverture, Un employé entrain d'installer u nstore banner"
+          fetchpriority="high"
+          class="hero__img"
+          priority
+          fill
+        />
         <div class="hero__overlay"></div>
         <div class="hero__diagonal" aria-hidden="true"></div>
       </div>
@@ -29,8 +26,8 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
         <div class="hero__text">
           <p class="hero__eyebrow">Antony & Île-de-France</p>
           <h1 class="hero__title">
-            L'alliance du savoir-faire<br />
-            <em>français</em> et de la qualité<br />
+            L'alliance du savoir-faire<br/>
+            <em>français</em> et de la qualité<br/>
             sur mesure
           </h1>
           <p class="hero__subtitle">
@@ -41,7 +38,8 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
           <div class="hero__actions">
             <a href="#contact" class="btn-primary">
               Votre projet
-              <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                   stroke-width="2.5">
                 <path d="M5 12h14M12 5l7 7-7 7"/>
               </svg>
             </a>
@@ -146,7 +144,7 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
       font-weight: 600;
       letter-spacing: 0.15em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.7);
+      color: rgba(255, 255, 255, 0.7);
       margin-bottom: 1.25rem;
 
       &::before {
@@ -159,7 +157,7 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
     }
 
     .hero__title {
-      font-family: var(--font-display),serif;
+      font-family: var(--font-display), serif;
       font-size: clamp(2.2rem, 5.5vw, 4rem);
       font-weight: 700;
       line-height: 1.15;
@@ -174,7 +172,7 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
     .hero__subtitle {
       font-size: clamp(1rem, 2vw, 1.15rem);
       line-height: 1.75;
-      color: rgba(255,255,255,0.85);
+      color: rgba(255, 255, 255, 0.85);
       margin-bottom: 2.5rem;
       max-width: 520px;
 
@@ -191,11 +189,11 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
     }
 
     .hero__btn-outline {
-      border-color: rgba(255,255,255,0.6);
+      border-color: rgba(255, 255, 255, 0.6);
       color: var(--color-white);
 
       &:hover, &:focus-visible {
-        background: rgba(255,255,255,0.15);
+        background: rgba(255, 255, 255, 0.15);
         border-color: white;
       }
     }
@@ -205,9 +203,9 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
       display: flex;
       flex-direction: column;
       gap: 0.25rem;
-      background: rgba(255,255,255,0.1);
+      background: rgba(255, 255, 255, 0.1);
       backdrop-filter: blur(12px);
-      border: 1px solid rgba(255,255,255,0.2);
+      border: 1px solid rgba(255, 255, 255, 0.2);
       border-radius: var(--radius-lg);
       padding: 2rem 1.75rem;
       min-width: 180px;
@@ -231,19 +229,23 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
       flex-direction: column;
       gap: 0.25rem;
       padding: 0.75rem 0;
-      border-bottom: 1px solid rgba(255,255,255,0.15);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 
-      &:last-child { border-bottom: none; }
+      &:last-child {
+        border-bottom: none;
+      }
 
       @media (max-width: 900px) {
         border-bottom: none;
         padding: 0 2rem;
-        &:last-child { border-right: none; }
+        &:last-child {
+          border-right: none;
+        }
       }
     }
 
     .hero__stat-value {
-      font-family: var(--font-display),serif;
+      font-family: var(--font-display), serif;
       font-size: 2rem;
       font-weight: 700;
       color: #6dcc85;
@@ -253,7 +255,7 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
     .hero__stat-label {
       font-size: 0.75rem;
       font-weight: 500;
-      color: rgba(255,255,255,0.75);
+      color: rgba(255, 255, 255, 0.75);
       letter-spacing: 0.05em;
     }
 
@@ -273,7 +275,7 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
     .scroll-dot {
       width: 28px;
       height: 44px;
-      border: 2px solid rgba(255,255,255,0.5);
+      border: 2px solid rgba(255, 255, 255, 0.5);
       border-radius: 14px;
       position: relative;
 
@@ -285,22 +287,43 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
         transform: translateX(-50%);
         width: 4px;
         height: 8px;
-        background: rgba(255,255,255,0.8);
+        background: rgba(255, 255, 255, 0.8);
         border-radius: 2px;
         animation: scroll-bounce 1.8s ease infinite;
       }
     }
 
     @keyframes scroll-bounce {
-      0%, 100% { transform: translateX(-50%) translateY(0); opacity: 1; }
-      50% { transform: translateX(-50%) translateY(10px); opacity: 0.3; }
+      0%, 100% {
+        transform: translateX(-50%) translateY(0);
+        opacity: 1;
+      }
+      50% {
+        transform: translateX(-50%) translateY(10px);
+        opacity: 0.3;
+      }
     }
   `,
+  imports: [
+    NgOptimizedImage
+  ]
 })
-export class HeroComponent {
+export class HeroComponent implements OnInit {
+  document = inject(DOCUMENT);
+
   readonly stats = [
     { value: '100%', label: 'Produits français' },
     { value: '5★',   label: 'Satisfaction client' },
     { value: '3',    label: 'Expertises métier' },
   ];
+
+
+  coverPicture = signal("assets/images/front-page.jpg");
+
+  ngOnInit() {
+    // @ts-ignore
+    if (this.document?.defaultView?.innerWidth < 650) {
+      this.coverPicture.set("assets/images/front-page-mobile.jpg")
+    }
+  }
 }

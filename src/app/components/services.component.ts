@@ -62,8 +62,7 @@ import {ServiceCategory} from './service.model';
                     <img
                       ngSrc="{{ sub.image }}"
                       [alt]="sub.imageAlt"
-                      width="400"
-                      height="260"
+                      fill
                       class="card__img"
                     />
                     <div class="card__img-overlay" aria-hidden="true"></div>

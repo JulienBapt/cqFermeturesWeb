@@ -3,12 +3,26 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#1d6d30" />
+  <meta name="author" content="CQ Fermetures" />
+  <meta name="geo.region" content="FR-92" />
+  <meta name="geo.placename" content="Antony" />
+  <meta name="geo.position" content="48.7539;2.2976" />
+  <meta name="ICBM" content="48.7539, 2.2976" />
+
+  <!-- Performance: preconnect + non-blocking font load (better LCP / Core Web Vitals) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600&display=swap"
+  />
 
   <!-- SEO -->
   <title>CQ Fermetures — Installation Stores, Volets & Films à Antony (92)</title>
   <meta name="description" content="Entreprise locale spécialisée dans l'installation de stores, volets et films de vitrage en Île-de-France. Produits 100% français, artisan de proximité, devis gratuit." />
-  <meta name="keywords" content="volets, stores, films décoratifs, films protecteurs, volets roulants, volets battants, stores banne, stores intérieurs, vitrophanie, film solaire, installation volets Antony, stores Île-de-France, CQ Fermetures, Antony, Île-de-France" />
-  <meta name="robots" content="index, follow" />
+  <meta name="keywords" content="installation, volets, stores, films décoratifs, films protecteurs, volets roulants, volets battants, stores banne, stores intérieurs, vitrophanie, film solaire, installation volets Antony, stores Île-de-France, volets Ile de france, CQ Fermetures, dépannage, pose, aide, travaux, prestations, devis, Île-de-France, 92, 91, Antony, Sceaux, Massy, Chatenay, Wissous, Palaiseau, Chilly-Mazarin, Bièvres, Clamart, Chatillon, Meudon, Issy les moulineaux, Villejuif, Rungis, Thiais, Orly, Arcueil, Bagneux, Fontenay aux roses, Le plessis Robinson, Robinson, Malabry, Cachan, Chatillon, Bricollage" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <link rel="canonical" href="https://cqfermetures.fr/" />
 
   <!-- Open Graph -->
@@ -16,7 +30,10 @@
   <meta property="og:url" content="https://cqfermetures.fr/" />
   <meta property="og:title" content="CQ Fermetures — Stores, Volets & Films à Antony" />
   <meta property="og:description" content="Installation de stores, volets et films de vitrage. Produits 100% français, artisan local en Île-de-France. Devis gratuit." />
-  <meta property="og:image" content="https://cqfermetures.fr/assets/images/hero-cover.jpg" />
+  <meta property="og:image" content="https://cqfermetures.fr/assets/images/front-page.jpg" />
+  <meta property="og:image:alt" content="CQ Fermetures — pose de stores, volets et films à Antony" />
+  <meta property="og:image:width" content="3840" />
+  <meta property="og:image:height" content="2880" />
   <meta property="og:locale" content="fr_FR" />
   <meta property="og:site_name" content="CQ Fermetures" />
 
@@ -24,37 +41,137 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="CQ Fermetures — Stores, Volets & Films à Antony" />
   <meta name="twitter:description" content="Artisan local spécialisé stores, volets et films. Île-de-France." />
-  <meta name="twitter:image" content="https://cqfermetures.fr/assets/images/hero-cover.jpg" />
+  <meta name="twitter:image" content="https://cqfermetures.fr/assets/images/front-page.jpg" />
+  <meta name="twitter:image:alt" content="CQ Fermetures — pose de stores, volets et films à Antony" />
 
-  <!-- Structured Data — LocalBusiness -->
+  <!-- Structured Data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "CQ Fermetures",
-    "description": "Installation et dépannage de stores, volets et films de vitrage en Île-de-France. Produits 100% français.",
-    "url": "https://cqfermetures.fr/",
-    "telephone": "+33651325466",
-    "email": "cqfermetures@gmail.com",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Antony",
-      "addressLocality": "Antony",
-      "postalCode": "92160",
-      "addressCountry": "FR"
-    },
-    "areaServed": {
-      "@type": "State",
-      "name": "Île-de-France"
-    },
-    "serviceType": ["Installation de volets", "Installation de stores", "Pose de films de vitrage", "Motorisation Somfy", "Vitrophanie"],
-    "priceRange": "€",
-    "sameAs": [
-      "https://www.instagram.com/cqfermetures"
+    "@graph": [
+      {
+        "@type": "HomeAndConstructionBusiness",
+        "@id": "https://cqfermetures.fr/#business",
+        "name": "CQ Fermetures",
+        "description": "Installation et dépannage de stores, volets et films de vitrage à Antony et en Île-de-France. Produits 100% français, devis gratuit.",
+        "url": "https://cqfermetures.fr/",
+        "telephone": "+33651325466",
+        "email": "cqfermetures@gmail.com",
+        "image": "https://cqfermetures.fr/assets/images/front-page.jpg",
+        "logo": "https://cqfermetures.fr/assets/images/house_logo.png",
+        "priceRange": "€€",
+        "currenciesAccepted": "EUR",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Antony",
+          "postalCode": "92160",
+          "addressRegion": "Île-de-France",
+          "addressCountry": "FR"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 48.7539,
+          "longitude": 2.2976
+        },
+        "areaServed": [
+          { "@type": "City", "name": "Antony" },
+          { "@type": "City", "name": "Sceaux" },
+          { "@type": "City", "name": "Bourg-la-Reine" },
+          { "@type": "City", "name": "Châtenay-Malabry" },
+          { "@type": "City", "name": "Massy" },
+          { "@type": "AdministrativeArea", "name": "Hauts-de-Seine" },
+          { "@type": "AdministrativeArea", "name": "Île-de-France" }
+        ],
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" ],
+            "opens": "08:00",
+            "closes": "18:00"
+          }
+        ],
+        "sameAs": [
+          "https://www.instagram.com/cq_fermetures/"
+        ],
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "5.0",
+          "reviewCount": "6",
+          "bestRating": "5",
+          "worstRating": "1"
+        },
+        "review": [
+          {
+            "@type": "Review",
+            "author": { "@type": "Person", "name": "Baptiste Julien" },
+            "datePublished": "2026-04-01",
+            "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+            "reviewBody": "Travail impeccable, rapide et propre. Les volets sont de très bonne qualité et le rendu est top. Je recommande sans hésiter !"
+          },
+          {
+            "@type": "Review",
+            "author": { "@type": "Person", "name": "Christine Mazzocco" },
+            "datePublished": "2026-03-01",
+            "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+            "reviewBody": "Très satisfaite du résultat ! La vitrophanie a donné une vraie identité à ma vitrine. Conseil, ponctualité et professionnalisme au rendez-vous."
+          },
+          {
+            "@type": "Review",
+            "author": { "@type": "Person", "name": "Mohammed El-hasser" },
+            "datePublished": "2026-03-01",
+            "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+            "reviewBody": "Installation parfaite, les stores sont élégants et fonctionnels. Très bon accompagnement du début à la fin. Un vrai sens du détail !"
+          }
+        ],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Prestations CQ Fermetures",
+          "itemListElement": [
+            {
+              "@type": "OfferCatalog",
+              "name": "Volets",
+              "itemListElement": [
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Volets roulants" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Volets battants" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Volets coulissants" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Volets brise-soleil" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Motorisation Somfy / domotique" } }
+              ]
+            },
+            {
+              "@type": "OfferCatalog",
+              "name": "Stores",
+              "itemListElement": [
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Stores bannes" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Stores intérieurs" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Stores verticaux" } }
+              ]
+            },
+            {
+              "@type": "OfferCatalog",
+              "name": "Films de vitrage",
+              "itemListElement": [
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Films solaires" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Vitrophanie décorative" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Films occultants / d'intimité" } }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://cqfermetures.fr/#website",
+        "url": "https://cqfermetures.fr/",
+        "name": "CQ Fermetures",
+        "inLanguage": "fr-FR",
+        "publisher": { "@id": "https://cqfermetures.fr/#business" }
+      }
     ]
   }
   </script>
-  <link rel="icon" type="image/x-icon" href="assets/images/house_logo.png" />
+  <link rel="icon" type="image/png" href="/assets/images/house_logo.png" />
+  <link rel="apple-touch-icon" href="/assets/images/house_logo.png" />
 </head>
 <body>
   <app-root></app-root>

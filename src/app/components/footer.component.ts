@@ -94,7 +94,7 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
         <!-- Bottom bar -->
         <div class="footer__bottom">
           <p class="footer__copy">
-            &copy; <span id="current-year">2025</span> CQ Fermetures — Tous droits réservés
+            &copy; {{ currentYear }} CQ Fermetures — Tous droits réservés
           </p>
           <p class="footer__legal">
             Antony, 92160 France
@@ -221,4 +221,6 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
     }
   `,
 })
-export class FooterComponent {}
+export class FooterComponent {
+  readonly currentYear = new Date().getFullYear();
+}
